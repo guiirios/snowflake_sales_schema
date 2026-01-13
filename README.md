@@ -1,47 +1,50 @@
-# snowflake_sales_schema
-📌 Overview  This project demonstrates the design and implementation of a Snowflake Schema for a sales data warehouse using SQL. The model follows dimensional modeling best practices, separating descriptive data into dimensions and transactional data into a fact table.
-🧱 Schema Design
+❄️ Sales Analytics – Snowflake Schema (Data Warehouse)
 
-The schema consists of:
+Este repositório contém o modelo de Data Warehouse utilizando o Snowflake Schema, desenvolvido com SQL e modelado no MySQL Workbench.
+O objetivo do projeto é permitir análises de vendas, como volume, valor total vendido e desempenho por cliente, vendedor, produto, categoria, localização e tempo.
 
-Dimensions
+📁 Estrutura do Repositório
+Arquivo	Descrição
+sales_snowflake.mwb	Modelo visual criado no MySQL Workbench (diagrama dimensional Snowflake)
+sales_snowflake.sql	Script SQL para criação das tabelas de dimensões e fato
+README.md	Documentação do projeto
+🧱 Estrutura do Modelo (Snowflake Schema)
 
-dim_customer – customer details and demographics
+O modelo segue o padrão Snowflake, com dimensões normalizadas e uma tabela fato central.
 
-dim_vendor – vendor/seller information
+📊 Tabela Fato
+🗂️ Tabela	📖 Descrição
+fact_sales 📈	Armazena os eventos de venda, contendo as métricas quantidade e valor total (amount), além das chaves para as dimensões.
+🧩 Tabelas Dimensão
+🗂️ Tabela	📖 Descrição
+dim_customer 👤	Informações dos clientes, incluindo nome, CPF, data de nascimento e localização.
+dim_vendor 🧑‍💼	Dados dos vendedores, com informações pessoais e localização.
+dim_product 📦	Detalhes dos produtos comercializados.
+dim_category 🏷️	Categorias dos produtos, normalizadas a partir da dimensão produto.
+dim_location 🌍	Dados geográficos (país, estado e cidade), reutilizados por clientes e vendedores.
+dim_date 📅	Dimensão de tempo para análise das vendas ao longo dos dias.
 
-dim_product – product information
+✨ O modelo utiliza chaves primárias, chaves estrangeiras e relacionamentos normalizados, garantindo:
 
-dim_category – product categories (normalized)
+Consistência dos dados
 
-dim_location – geographical data reused by customers and vendors
+Redução de redundância
 
-dim_date – time dimension for sales analysis
+Estrutura adequada para consultas analíticas (OLAP)
 
-Fact Table
+🎯 Objetivos do Projeto
 
-fact_sales – stores measurable business events, including:
+Praticar modelagem dimensional
 
-quantity sold
+Aplicar corretamente o Snowflake Schema
 
-total sale amount
+Entender a separação entre tabelas fato e dimensões
 
-This structure enables efficient analytical queries while reducing data redundancy through normalized dimensions.
+Criar uma base adequada para Business Intelligence e Analytics
 
-🎯 Purpose
+💻 Tecnologias Utilizadas
 
-The goal of this project is to:
-
-Practice data warehouse modeling
-
-Understand the difference between star and snowflake schemas
-
-Apply fact vs dimension separation
-
-Build a schema suitable for BI and analytical queries
-
-🛠 Technologies
-
-SQL (MySQL-compatible)
-
-Dimensional modeling concepts (Kimball-style)
+🗄️ MySQL
+🧰 MySQL Workbench (modelagem e diagrama dimensional)
+⚙️ SQL Relacional (DDL + Constraints)
+🔄 Git e GitHub (versionamento)
